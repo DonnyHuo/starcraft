@@ -1,0 +1,3 @@
+export const richPlanInvite = "0x0812090F817003CB8F0d506A93476B21b6a6629C"
+export const FILWT = "0x8fF463fA01f3Ba0C3E1c50f249f57EbfB421e7De"
+

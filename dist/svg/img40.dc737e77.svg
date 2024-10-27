@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="34px" height="34px" viewBox="0 0 34 34" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>收起侧边栏@2x</title>
+    <defs>
+        <path d="M29,26 L6.26315883,26 L6.26315883,23.5149138 L29,23.5149138 L29,26 Z M12.5915796,7.75697507 L8.57222123,11.7107391 L12.5915796,15.664503 L10.8054734,17.4214606 L5,11.7107303 L10.8054734,6 L12.5915796,7.7569576 L12.5915796,7.75697507 Z M29,17.3021852 L17.6315794,17.3021852 L17.6315794,14.817099 L29,14.817099 L29,17.3021852 Z M29,8.60437038 L17.6315794,8.60437038 L17.6315794,6.11928418 L29,6.11928418 L29,8.60437038 Z" id="path-1"></path>
+        <filter x="-41.7%" y="-40.0%" width="183.3%" height="200.0%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.810849533   0 0 0 0 0.478099544   0 0 0 0 1  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="邀请1" transform="translate(-325.000000, -19.000000)" fill-rule="nonzero">
+            <g id="形状" transform="translate(325.000000, 19.000000)">
+                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                <use fill="#E0CCFA" xlink:href="#path-1"></use>
+            </g>
+        </g>
+    </g>
+</svg>
