@@ -87,7 +87,7 @@ import ADFUEL from '@/assets/images/img18.png';
 import { onMounted, getCurrentInstance, computed, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useStore } from 'vuex';
-import { inviting, token } from 'starcraft-sdk';
+import { inviting, token } from '@/utils';
 const { proxy } = getCurrentInstance() as any;
 const store = useStore();
 const router = useRouter();

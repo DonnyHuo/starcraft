@@ -46,7 +46,7 @@ import img24 from '@/assets/images/img24.png';
 import { ref, onMounted, getCurrentInstance, computed } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useStore } from 'vuex';
-import { scpBox, util, erc20, token, contract, getSigner, planetPool, scp } from 'starcraft-sdk';
+import { scpBox, util, erc20, token, contract, getSigner, planetPool, scp } from '@/utils';
 const { proxy } = getCurrentInstance() as any;
 const store = useStore();
 const router = useRouter();

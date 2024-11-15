@@ -1,4 +1,4 @@
-import { wallet, network, util, erc20 } from 'starcraft-sdk';
+import { wallet, network, util, erc20 } from '@/utils';
 import store from '@/stores';
 import utils from '@/globalUtil';
 export default {

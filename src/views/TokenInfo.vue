@@ -20,7 +20,7 @@
 </template>
 <script lang="ts" setup>
 import { ref, onMounted, getCurrentInstance, computed, watch } from 'vue';
-import { erc20, token, contract, util } from 'starcraft-sdk';
+import { erc20, token, contract, util } from '@/utils';
 const { proxy } = getCurrentInstance() as any;
 
 const totalSupply = ref(0);

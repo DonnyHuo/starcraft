@@ -84,7 +84,7 @@ import img26 from '@/assets/images/img26.png';
 import { ref, onMounted, getCurrentInstance, computed, reactive } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useStore } from 'vuex';
-import { getSigner, rpcProvider, token, util } from 'starcraft-sdk';
+import { getSigner, rpcProvider, token, util } from '@/utils';
 import { ContractConnect } from '@/constants/sdk/index';
 import { richPlanInvite } from '@/constants/config';
 import inviteAbi from '@/abis/inviting.json';

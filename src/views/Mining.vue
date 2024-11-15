@@ -237,7 +237,7 @@ import img30 from '@/assets/images/img30.svg';
 import { CountTo } from 'vue3-count-to';
 import { ref, reactive, onMounted, getCurrentInstance, computed, onBeforeUnmount, watch } from 'vue';
 import { useStore } from 'vuex';
-import { getProvider, scp, scf, util, erc20, token, contract, getSigner, planetPool, inviting } from 'starcraft-sdk';
+import { getProvider, scp, scf, util, erc20, token, contract, getSigner, planetPool, inviting } from '@/utils';
 const { proxy } = getCurrentInstance() as any;
 const store = useStore();
 const walletAccount = computed(() => store.state.walletAccount);

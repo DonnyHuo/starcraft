@@ -38,7 +38,7 @@
 <script lang="ts" setup>
 import { ref, reactive, onMounted, getCurrentInstance, computed } from 'vue';
 import { useStore } from 'vuex';
-import { util, planetPool, planetPoolInfo, buyNode } from 'starcraft-sdk';
+import { util, planetPool, planetPoolInfo, buyNode } from '@/utils';
 const { proxy } = getCurrentInstance() as any;
 const store = useStore();
 const walletAccount = computed(() => store.state.walletAccount);
@@ -90,21 +90,22 @@ const getHarvestInfos = () => {
   proxy.$showLoadingToast({});
   const { first, skip, orderBy, orderDirection } = queryParams;
   planetPoolInfo
-    .getHarvestInfos(first, skip, orderBy, orderDirection, walletAccount.value)
+    .getHarvestInfos(first, skip, orderDirection, walletAccount.value)
     .then((res) => {
-      if (res.data.harvestInfos.length > 0) {
+      console.log('res',res)
+      if (res.data.harvests.length > 0) {
         let list: any = [];
-        res.data.harvestInfos.forEach((element: any) => {
+        res.data.harvests.forEach((element: any) => {
           const obj = {
-            timestamp: proxy.$utils.formatDate(element.timestamp * 1000),
-            hash: element.hash,
+            timestamp: proxy.$utils.formatDate(element.blockTimestamp * 1000),
+            hash: element.transactionHash,
             user: element.user,
-            amount: proxy.$utils.utilFormat(util.formatEther(element.amount))
+            amount: proxy.$utils.utilFormat(util.formatEther(element.amounts[0])) + proxy.$utils.utilFormat(util.formatEther(element.amounts[1]))
           };
           list.push(obj);
         });
         infoList.list = [...infoList.list, ...list];
-        if (res.data.harvestInfos.length >= queryParams.first) {
+        if (res.data.harvests.length >= queryParams.first) {
           queryParams.skip = queryParams.skip + queryParams.first;
           getHarvestInfos();
         } else {

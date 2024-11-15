@@ -79,7 +79,7 @@ import img22 from '@/assets/images/img22.png';
 
 import { ref, onMounted, getCurrentInstance, computed, watch } from 'vue';
 import { useStore } from 'vuex';
-import { shop, erc20, util, token, contract, getSigner, shop2 } from 'starcraft-sdk';
+import { shop, erc20, util, token, contract, getSigner, shop2 } from '@/utils';
 import { FILWT } from '@/constants/config';
 import { useRoute, useRouter } from 'vue-router';
 const { proxy } = getCurrentInstance() as any;

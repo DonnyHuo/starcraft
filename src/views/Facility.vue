@@ -90,7 +90,7 @@ import img37 from '@/assets/images/img37.svg';
 import { ref, reactive, onMounted, getCurrentInstance, computed } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useStore } from 'vuex';
-import { scfBox, scf, util, erc20, token, contract, getSigner } from 'starcraft-sdk';
+import { scfBox, scf, util, erc20, token, contract, getSigner } from '@/utils';
 const { proxy } = getCurrentInstance() as any;
 const store = useStore();
 const router = useRouter();

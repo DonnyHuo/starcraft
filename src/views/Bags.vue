@@ -40,7 +40,7 @@ import img32 from '@/assets/images/img32.svg';
 import img37 from '@/assets/images/img37.svg';
 import { ref, reactive, onMounted, getCurrentInstance, computed } from 'vue';
 import { useStore } from 'vuex';
-import { scf } from 'starcraft-sdk';
+import { scf } from '@/utils';
 const { proxy } = getCurrentInstance() as any;
 const store = useStore();
 const walletAccount = computed(() => store.state.walletAccount);

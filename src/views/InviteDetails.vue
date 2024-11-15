@@ -14,13 +14,14 @@
         </div>
         <ul v-if="infoList.list.length > 0">
           <li v-for="(item, index) in infoList.list" :key="index">
-            <p>{{ proxy.$utils.ellipsisWallet(item.user) }}</p>
+            <!--  -->
+            <p>{{ proxy.$utils.ellipsisWallet([item.address.toLowerCase(), item.self.toLowerCase()].filter((list) => list !== walletAccount.toLowerCase())[0]) }}</p>
             <p>
               {{ Number(item.type) == 0 ? 'Direct' : 'Indirect' }}
             </p>
             <p>
-              <a :href="'https://bscscan.com/tx/' + item.hash" target="_blank">
-                {{ proxy.$utils.ellipsisWallet(item.hash) }}
+              <a class="txid" :href="'https://bscscan.com/tx/' + item.txid" target="_blank">
+                {{ proxy.$utils.ellipsisWallet(item.txid) }}
               </a>
             </p>
           </li>
@@ -34,7 +35,7 @@
 <script lang="ts" setup>
 import { reactive, onMounted, getCurrentInstance, computed } from 'vue';
 import { useStore } from 'vuex';
-import { invitingInfo } from 'starcraft-sdk';
+import { invitingInfo } from '@/utils';
 const { proxy } = getCurrentInstance() as any;
 const store = useStore();
 
@@ -70,9 +71,9 @@ const getBindInfos = () => {
   invitingInfo
     .getBindInfos(first, skip, orderBy, orderDirection, walletAccount.value, '')
     .then((res) => {
-      if (res.data.bindInfos.length > 0) {
-        infoList.list.push(...res.data.bindInfos);
-        if (res.data.bindInfos.length >= queryParams.first) {
+      if (res.data.relationShipRecords.length > 0) {
+        infoList.list.push(...res.data.relationShipRecords);
+        if (res.data.relationShipRecords.length >= queryParams.first) {
           queryParams.skip = queryParams.skip + queryParams.first;
           getBindInfos();
         } else {
@@ -93,12 +94,11 @@ const getCounters = () => {
   invitingInfo
     .getCounters(first, skip, orderBy, orderDirection, walletAccount.value)
     .then((res) => {
-      if (res.data.counters.length > 0) {
-        const { usersCount, directCount, indirectCount } = res.data.counters[0];
+      if (res.data.invitingUser) {
+        const { directFriends, indirectFriends } = res.data.invitingUser;
         infoList.info = {
-          usersCount: Number(usersCount),
-          directCount: Number(directCount),
-          indirectCount: Number(indirectCount)
+          directCount: Number(directFriends),
+          indirectCount: Number(indirectFriends)
         };
       }
       proxy.$closeToast();
@@ -151,6 +151,9 @@ const getCounters = () => {
       &:nth-child(3) {
         width: 40%;
         text-align: right;
+      }
+      .txid {
+        justify-content: end;
       }
     }
   }

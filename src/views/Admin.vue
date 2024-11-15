@@ -114,7 +114,7 @@
 import { ref, reactive, onMounted, getCurrentInstance, computed, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useStore } from 'vuex';
-import { util, erc20, token, contract, getSigner, planetPool, scpBox, scpBox2, shop, scfBox, rpcProvider } from 'starcraft-sdk';
+import { util, erc20, token, contract, getSigner, planetPool, scpBox, scpBox2, shop, scfBox, rpcProvider } from '@/utils';
 import BigNumber from 'bignumber.js';
 import { ContractConnect } from '@/constants/sdk/index';
 import { FILWT } from '@/constants/config';

@@ -52,7 +52,7 @@ import img24 from '@/assets/images/img24.png';
 import { ref, onMounted, getCurrentInstance, computed } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useStore } from 'vuex';
-import { erc20, getSigner, rpcProvider, token, util } from 'starcraft-sdk';
+import { erc20, getSigner, rpcProvider, token, util } from '@/utils';
 import { ContractConnect } from '@/constants/sdk/index';
 import { richPlanInvite } from '@/constants/config';
 import inviteAbi from '@/abis/inviting.json';

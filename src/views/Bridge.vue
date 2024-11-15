@@ -30,7 +30,7 @@ import { ref, onMounted, getCurrentInstance, computed } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useStore } from 'vuex';
 import { ethers } from 'ethers';
-import { getSigner } from 'starcraft-sdk';
+import { getSigner } from '@/utils';
 import { Address } from '@ton/ton'
 
 const store = useStore();

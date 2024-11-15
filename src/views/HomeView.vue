@@ -31,10 +31,10 @@
         <img :src="img51" alt="" />
         <p>Rich Plan</p>
       </li>
-      <!-- <li @click="toPage('/Invite')">
+      <li @click="toPage('/Invite')">
         <img :src="img6" alt="" />
         <p>Invitation Relationship</p>
-      </li> -->
+      </li>
       <li @click="toPage('/NodeReward')" v-if="isPurchased > 0">
         <img :src="img49" alt="" />
         <p>Node Reward</p>
@@ -43,6 +43,7 @@
         <img :src="img49" alt="" />
         <p>Purchase Node</p>
       </li>
+
       <li @click="toPage('/Bind')">
         <img :src="img6" alt="" />
         <p>Bind</p>
@@ -82,7 +83,7 @@ import img51 from '@/assets/images/img51.png';
 import { ref, onMounted, getCurrentInstance, computed, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useStore } from 'vuex';
-import { scp, scpBox, planetPool, buyNode } from 'starcraft-sdk';
+import { scp, scpBox, planetPool, buyNode } from '@/utils';
 const router = useRouter();
 const route = useRoute();
 const store = useStore();

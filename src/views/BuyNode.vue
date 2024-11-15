@@ -28,7 +28,7 @@ import img23 from '@/assets/images/img23.png';
 import img24 from '@/assets/images/img24.png';
 import { ref, reactive, onMounted, getCurrentInstance, computed } from 'vue';
 import { useStore } from 'vuex';
-import { buyNode, util, erc20, token, contract, getSigner } from 'starcraft-sdk';
+import { buyNode, util, erc20, token, contract, getSigner } from '@/utils';
 import router from '@/router';
 const { proxy } = getCurrentInstance() as any;
 const store = useStore();
