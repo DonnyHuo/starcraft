@@ -40,7 +40,7 @@ export const planetPoolInfo = {
         first: first,
         skip: skip,
         orderDirection: orderDirection,
-        user: "0x07c549cce36667fe11153c272d292039b9ffb2ba",
+        user: user,
         block: block,
       },
     });
