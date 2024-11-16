@@ -43,7 +43,7 @@ const walletAccount = computed(() => store.state.walletAccount);
 const queryParams = reactive({
   first: 1000,
   skip: 0,
-  orderBy: 'timestamp',
+  orderBy: 'id',
   orderDirection: 'desc',
   inviter: '', // 邀请人地址？
   user: '' // 用户地址？
@@ -68,8 +68,9 @@ onMounted(() => {
 const getBindInfos = () => {
   proxy.$showLoadingToast({});
   const { first, skip, orderBy, orderDirection } = queryParams;
+  // walletAccount.value
   invitingInfo
-    .getBindInfos(first, skip, orderBy, orderDirection, '', walletAccount.value)
+    .getBindInfos(first, skip, orderBy, orderDirection, '', walletAccount.value.toLowerCase())
     .then((res) => {
       if (res.data.relationShipRecords.length > 0) {
         infoList.list.push(...res.data.relationShipRecords);
@@ -92,7 +93,7 @@ const getCounters = () => {
   proxy.$showLoadingToast({});
   const { first, skip, orderBy, orderDirection } = queryParams2;
   invitingInfo
-    .getCounters(first, skip, orderBy, orderDirection, walletAccount.value)
+    .getCounters(first, skip, orderBy, orderDirection, walletAccount.value.toLowerCase())
     .then((res) => {
       if (res.data.invitingUser) {
         const { directFriends, indirectFriends } = res.data.invitingUser;

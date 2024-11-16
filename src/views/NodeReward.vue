@@ -47,7 +47,7 @@ const totalEnergy = ref(0);
 const queryParams = reactive({
   first: 1000,
   skip: 0,
-  orderBy: 'timestamp',
+  orderBy: 'blockTimestamp',
   orderDirection: 'desc',
   user: '',
   block: 0
@@ -90,7 +90,7 @@ const getHarvestInfos = () => {
   proxy.$showLoadingToast({});
   const { first, skip, orderBy, orderDirection } = queryParams;
   planetPoolInfo
-    .getHarvestInfos(first, skip, orderDirection, walletAccount.value)
+    .getHarvestInfos(first, skip, orderBy, orderDirection, walletAccount.value.toLowerCase())
     .then((res) => {
       console.log('res',res)
       if (res.data.harvests.length > 0) {

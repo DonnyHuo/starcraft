@@ -16,14 +16,15 @@ export const planetPoolInfo = {
   getHarvestInfos: async (
     first: number,
     skip: number,
+    orderBy: String,
     orderDirection: string,
     user?: string,
     block?: number,
   ) => {
     const harvestInfosQuery = `
-      query($first: Int, $skip: Int, $orderDirection: String, $user: String, $block: Int) {
+      query($first: Int, $skip: Int, $orderBy: String, $orderDirection: String, $user: String, $block: Int) {
         harvests(
-          first: $first, skip: $skip, orderDirection: $orderDirection, ${block ? `block: { number: $block },` : ``}
+          first: $first, skip: $skip, orderBy: $orderBy, orderDirection: $orderDirection, ${block ? `block: { number: $block },` : ``}
           where: {${user ? `user: $user,` : ``}}
         ) {
           blockTimestamp
@@ -40,6 +41,7 @@ export const planetPoolInfo = {
         first: first,
         skip: skip,
         orderDirection: orderDirection,
+        orderBy: orderBy,
         user: user,
         block: block,
       },

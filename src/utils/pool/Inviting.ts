@@ -22,9 +22,9 @@ export const invitingInfo = {
     user?: string
   ) => {
     const bindInfosQuery = `
-      query($first: Int, $skip: Int, $orderDirection: String, $inviter: String, $user: String) {
+      query($first: Int, $skip: Int, $orderBy: String, $orderDirection: String, $inviter: String, $user: String) {
         relationShipRecords(
-          first: $first, skip: $skip, orderDirection: $orderDirection,
+          first: $first, skip: $skip, orderBy: $orderBy, orderDirection: $orderDirection,
           where: { or: [{ self: $user }, { address: $user }] } 
         ) {
           id
