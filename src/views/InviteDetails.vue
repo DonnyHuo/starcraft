@@ -69,7 +69,7 @@ const getBindInfos = () => {
   proxy.$showLoadingToast({});
   const { first, skip, orderBy, orderDirection } = queryParams;
   invitingInfo
-    .getBindInfos(first, skip, orderBy, orderDirection, walletAccount.value, '')
+    .getBindInfos(first, skip, orderBy, orderDirection, '', walletAccount.value)
     .then((res) => {
       if (res.data.relationShipRecords.length > 0) {
         infoList.list.push(...res.data.relationShipRecords);
